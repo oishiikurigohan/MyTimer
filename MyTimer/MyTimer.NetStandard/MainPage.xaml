@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyTimer"
+             x:Class="MyTimer.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:MyTimerViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.ColumnSpan="2" x:Name="CountLabel" Text="{Binding Path=CurrentCount.Value, Mode=OneWay}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" />
+        <Button Grid.Row="1" Grid.Column="0" x:Name="StartButton" Text="Start" Command="{Binding StartCommand}" />
+        <Button Grid.Row="1" Grid.Column="1" x:Name="StopButton"  Text="Stop"  Command="{Binding StopCommand}" />
+
+    </Grid>
+
+</ContentPage>
